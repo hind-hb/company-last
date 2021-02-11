@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+ <div class="container">
+   <h1>The Main Department :</h1>
+     <br>
+  <div class="row ">
+      <div class="col-sm-6 ">
+          {% for dep in dept%}
+             <h2>{{dep.name}}</h2>
+               <p> {{dep.dec}}</p>
+          <hr>
+      <br/> <br/> <br/>
+
+          {%endfor%}
+
+      </div>
+
+      <div class="col-sm-6">
+
+          {% csrf_token %}
+
+
+               <div class="form-group" >
+                    <form method="post">
+                         {% csrf_token %}
+
+                          <div class="form-group" >
+                            {{myform.as_p}}
+                          </div>
+                           <button type="submit" class="btn btn-success">Add</button>
+                   </form>
+               </div>
+
+
+      </div>
+  </div>
+ </div>
+{%endblock content%}
